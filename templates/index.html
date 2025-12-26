@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Report Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Disaster Report Analyzer</h1>
+            <p class="subtitle">Extract and analyze disaster information from web reports</p>
+        </header>
+        
+        <div class="form-section">
+            <p>Enter a  URL below to extract and analyze disaster information.</p>
+            <form method="POST" action="/">
+                <div class="form-group">
+                    <label for="url">Web URL:</label>
+                    <input type="text" id="url" name="url" 
+                           placeholder="https://reliefweb.int/report/country/disaster-report-title" 
+                           value="{% if result and result.url %}{{ result.url }}{% endif %}" required>
+                </div>
+                <button type="submit">Analyze Report</button>
+            </form>
+            
+            <div class="nav-links" style="margin-top: 20px;">
+                <a href="https://github.com/UpekshaIndeewari/GeoNLP_Disaster_Analyzer.git">About This Tool</a>
+            </div>
+        </div>
+        
+        {% if result %}
+            {% if result.error %}
+                <div class="error-box">
+                    <h3 class="error-title">Error</h3>
+                    <p>{{ result.error }}</p>
+                    {% if result.url %}
+                        <p style="margin-top: 10px;">URL: <code>{{ result.url }}</code></p>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="success-box">
+                    <h3>✅ Analysis Complete</h3>
+                    <p>Successfully analyzed the report from ReliefWeb.</p>
+                </div>
+                
+                <h3 class="section-title">Disaster Details</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>📋 Title</h4>
+                        <p>{{ result.title }}</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📍 Location</h4>
+                        <p>{% if result.extracted_info.location %}{{ result.extracted_info.location }}{% else %}<span class="null-value">Not specified</span>{% endif %}</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🏷️ Event Type</h4>
+                        <p>{% if result.extracted_info.event_type %}{{ result.extracted_info.event_type }}{% else %}<span class="null-value">Not specified</span>{% endif %}</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>⚡ Alert Level</h4>
+                        <p>{% if result.extracted_info.alert_level %}{{ result.extracted_info.alert_level }}{% else %}<span class="null-value">Not specified</span>{% endif %}</p>
+                    </div>
+                    <div class="info-card">
+                        <h4> 📅 Date</h4>
+                        <p>{% if result.extracted_info.date %}{{ result.extracted_info.date }}{% else %}<span class="null-value">Not specified</span>{% endif %}</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🌋 Disaster Scale</h4>
+                        <p>{% if result.extracted_info.disaster_scale %}{{ result.extracted_info.disaster_scale}}{% else %}<span class="null-value">Not specified</span>{% endif %}</p>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Impact Assessment</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-value">
+                            {% if result.extracted_info.impact.deaths is not none %}
+                                {{ result.extracted_info.impact.deaths }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Deaths</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-value">
+                            {% if result.extracted_info.impact.injured is not none %}
+                                {{ result.extracted_info.impact.injured }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Injured</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-value">
+                            {% if result.extracted_info.impact.affected_population is not none %}
+                                {{ result.extracted_info.impact.affected_population }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Affected Population</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-value">
+                            {% if result.extracted_info.impact.missing is not none %}
+                                {{ result.extracted_info.impact.missing }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Missing</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-value">
+                            {% if result.extracted_info.impact.displaced is not none %}
+                                {{ result.extracted_info.impact.displaced }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Displaced</div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Affected Administatives</h3>
+                <div class="impact-grid">
+                    <div class="impact-ad">
+                        <div class="impact-value">
+                            {% if result.stats.geo_stats.provinces is not none %}
+                                {{ result.stats.geo_stats.provinces }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Provinces</div>
+                    </div>
+                    <div class="impact-ad">
+                        <div class="impact-value">
+                            {% if result.stats.geo_stats.districts is not none %}
+                                {{ result.stats.geo_stats.districts }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Districts</div>
+                    </div>
+                    <div class="impact-ad">
+                        <div class="impact-value">
+                            {% if result.stats.geo_stats.cities is not none %}
+                                {{ result.stats.geo_stats.cities }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Cities</div>
+                    </div>
+                    <div class="impact-ad">
+                        <div class="impact-value">
+                            {% if result.stats.geo_stats.villages is not none %}
+                                {{ result.stats.geo_stats.villages }}
+                            {% else %}
+                                <span class="null-value">—</span>
+                            {% endif %}
+                        </div>
+                        <div class="impact-label">Villages</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Summary</h3>
+                <div class="summary-box">
+                    {% if result.extracted_info.summary %}
+                        {{ result.extracted_info.summary }}
+                    {% else %}
+                        <span class="null-value">No summary available</span>
+                    {% endif %}
+                </div>
+        
+            {% endif %}
+            {% if result and result.map_html %}
+            <div class="map-section">
+                <h3 class="section-title">Location</h3>
+                {% if result.extracted_info.districts_list %}
+                <div class="map-info-box">
+                    <h5 style="margin-top: 0;">
+                        <i class="fas fa-list"></i> Affected Districts:
+                    </h5>
+                    <div class="map-list">
+                        {% for district in result.extracted_info.districts_list %}
+                            {% if district %}
+                            <span class="map-tag map-tag-district">
+                                {{ district }}
+                            </span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <h5 style="margin-top: 0;">
+                        <i class="fas fa-list"></i> Affected Provinces:
+                    </h5>
+                    <div class="map-list">
+                        {% for i in result.extracted_info.provinces %}
+                            {% if i %}
+                            <span class="map-tag map-tag-province">
+                                {{ i }}
+                            </span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- The Map -->
+                <div class="map-container">
+                    {{ result.map_html|safe }}
+                </div>
+                
+                <!-- Instructions -->
+                <div class="map-note">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Note:</strong> This map shows approximate locations of districts mentioned in the report. 
+                </div>
+            </div>
+            {% endif %}
+            {% if result.stats %}
+            <h3 class="section-title">Statistical Visualizations</h3>
+            <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px;">
+            {{ result.impact_chart | safe }}
+            {{ result.geo_chart | safe }}
+            {{ result.alert_chart | safe }}
+            {{ result.spatial_chart2 | safe }}
+            {{ result.spatial_chart | safe }}
+            </div>
+            {% endif %}
+        {% endif %}
+        
+        <footer>
+            <p>Disaster Report Analyzer | Uses Web data for analysis</p>
+        </footer>
+    </div>
+</body>
+</html>

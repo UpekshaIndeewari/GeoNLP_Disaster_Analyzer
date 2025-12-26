@@ -1,0 +1,10 @@
+Flask
+requests
+beautifulsoup4
+nltk
+openai
+folium
+plotly
+geopy
+python-dotenv
+pandas
