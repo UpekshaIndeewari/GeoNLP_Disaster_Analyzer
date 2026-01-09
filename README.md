@@ -14,6 +14,11 @@ It combines **web scraping, NLP, large language models (LLMs), geocoding, and in
 
 ## 3. Methodology
 
+Folloiwng shows the work flow of the project
+<p align="center">
+  <img src="https://github.com/UpekshaIndeewari/GeoNLP_Disaster_Analyzer/blob/main/Workflow_GEONLP.png" alt="GeoNLP Workflow" width="700">
+</p>
+
 ### 3.1 Data Collection
 - Scrape textual disaster reports from URLs (e.g., ReliefWeb, CNN, BBC etc).  
 - Extract title, publication date, and main content using **BeautifulSoup**.
