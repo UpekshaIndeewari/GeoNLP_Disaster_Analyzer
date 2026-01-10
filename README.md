@@ -2,8 +2,7 @@
 
 ## 1. Project Overview
 
-**GeoNLP Disaster Analyzer** is a web application for **automatic extraction, analysis, and visualization** of disaster-related information from textual reports.  
-It combines **web scraping, NLP, large language models (LLMs), geocoding, and interactive visualizations** to deliver actionable insights for disaster management.
+**GeoNLP Disaster Analyzer** is a web application for **automatic extraction, analysis, and visualization** of disaster-related information from textual reports. It combines **web scraping, NLP, large language models (LLMs), geocoding, and interactive visualizations** to deliver actionable insights for disaster management.
 
 ## 2. Objectives
 
