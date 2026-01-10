@@ -52,7 +52,7 @@ Folloiwng shows the work flow of the project
   - Input disaster report URL.  
   - Display cleaned text, LLM-extracted JSON, interactive maps, and charts.  
 - Route `/json-output` provides raw JSON for programmatic access.
-- 
+  
 ## 4. Tools & Technologies
 
 - **Language:** Python 3.13  
@@ -67,6 +67,10 @@ Folloiwng shows the work flow of the project
 ## 5. Application Demo
 
 <video src="https://private-user-images.githubusercontent.com/111135094/534197495-b319625e-5ddd-48d5-b623-fb0e4752b1a5.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgwMzQyMDYsIm5iZiI6MTc2ODAzMzkwNiwicGF0aCI6Ii8xMTExMzUwOTQvNTM0MTk3NDk1LWIzMTk2MjVlLTVkZGQtNDhkNS1iNjIzLWZiMGU0NzUyYjFhNS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMFQwODMxNDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kZjg4OTE5NWI5OGRkZjMzOTEzZjU5ODkxMDgzOGYyY2M0MWE2M2EyN2Y3ZjkwMWE0ZjJhNWQzYWQzNTYyNzZmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.DmWj2g963I10HlyonyxLFlro7rRk2dseiguIRenR8u4" controls width="700"></video>
+
+This application is hosted. You can access it online at:
+
+[**Live Application Link**](https://web-production-2deab1.up.railway.app/)
 
 ## 5. Project Structure
 
