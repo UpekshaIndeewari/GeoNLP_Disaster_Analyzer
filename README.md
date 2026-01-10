@@ -63,7 +63,12 @@ Folloiwng shows the work flow of the project
 - **Geocoding & Mapping:** geopy, Folium, MarkerCluster  
 - **Visualization:** Plotly  
 - **Deployment:** Railway (supports environment variables)  
-[Watch the video](https://drive.google.com/file/d/1ZZAK0y6AayI4VsxoiVEfwCRjWlQFAU1a/view?usp=drive_link)
+
+<video width="700" controls>
+  <source src="https://github.com/UpekshaIndeewari/GeoNLP_Disaster_Analyzer/blob/main/Video_2026_01_10-1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 ## 5. Project Structure
 
