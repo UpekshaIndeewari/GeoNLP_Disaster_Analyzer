@@ -64,11 +64,84 @@ Folloiwng shows the work flow of the project
 - **Visualization:** Plotly  
 - **Deployment:** Railway (supports environment variables)  
 
-<video width="700" controls>
-  <source src="https://github.com/UpekshaIndeewari/GeoNLP_Disaster_Analyzer/blob/main/Video_2026_01_10-1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+## 5. Application Demo
 
+<video src="https://private-user-images.githubusercontent.com/111135094/534197495-b319625e-5ddd-48d5-b623-fb0e4752b1a5.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjgwMzQyMDYsIm5iZiI6MTc2ODAzMzkwNiwicGF0aCI6Ii8xMTExMzUwOTQvNTM0MTk3NDk1LWIzMTk2MjVlLTVkZGQtNDhkNS1iNjIzLWZiMGU0NzUyYjFhNS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDExMFQwODMxNDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kZjg4OTE5NWI5OGRkZjMzOTEzZjU5ODkxMDgzOGYyY2M0MWE2M2EyN2Y3ZjkwMWE0ZjJhNWQzYWQzNTYyNzZmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.DmWj2g963I10HlyonyxLFlro7rRk2dseiguIRenR8u4" controls width="700"></video>
 
 ## 5. Project Structure
+
+```text
+GeoNLP_Disaster_Analyzer/
+│
+├── app.py                     # Main Flask application (routes & logic)                  
+├── requirements.txt           # Python dependencies               
+├── README.md                  # Project documentation
+├── .gitignore                 # Ignore venv, cache, secrets
+├── .env                       # Environment variables (NOT pushed)
+│
+├── venv/                    # Virtual Environment
+│
+├── templates/                 # HTML templates (Flask)
+│   ├── index.html
+│   ├── charts.html
+│   └── map.html
+│
+└── static/                    # CSS / JS / assets
+     └──style.css
+```
+## 6. How to Run the Project
+
+Follow these steps to set up and run the GeoNLP Disaster Analyzer locally:
+
+### Step 1: Clone the repository
+
+```python
+git clone https://github.com/UpekshaIndeewari/GeoNLP_Disaster_Analyzer.git
+cd GeoNLP_Disaster_Analyzer
+```
+### Step 2: Create a virtual environment
+
+```python
+python -m venv venv
+```
+**On Windows:**
+
+```python
+venv\Scripts\activate
+```
+**On Linux / Mac:**
+
+```python
+source venv/bin/activate
+```
+You should see `venv` in your terminal prompt.
+
+### Step 3: Install dependencies
+
+```python
+pip install -r requirements.txt
+```
+### Step 5: Run the application
+```python
+python app.py
+```
+### Step 6: Open in Browser
+Go to http://127.0.0.1:5000/
+ to access the web application.
+
+## 7. Copyright & Licenses
+
+License: MIT License
+Copyright: Upeksha Indeewari Edirisooriya Kirihami Vidanelage
+License Summary
+This project is released under the MIT License, which permits you to:
+
+Use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
+Include the software in your own projects (commercial or non-commercial).
+
+Conditions:
+The copyright notice and license text must be included in all copies or substantial portions of the software.
+The software is provided "as is", without warranty of any kind.
+For full details, see the [MIT License](https://opensource.org/licenses/MIT) or include a `LICENSE `file in your repository.
+
 
