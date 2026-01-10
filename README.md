@@ -63,6 +63,7 @@ Folloiwng shows the work flow of the project
 - **Geocoding & Mapping:** geopy, Folium, MarkerCluster  
 - **Visualization:** Plotly  
 - **Deployment:** Railway (supports environment variables)  
+[Watch the video](https://drive.google.com/file/d/1ZZAK0y6AayI4VsxoiVEfwCRjWlQFAU1a/view?usp=drive_link)
 
 ## 5. Project Structure
 
